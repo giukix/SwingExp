@@ -1,21 +1,23 @@
 package view;
 
-import java.awt.CardLayout;
-import java.awt.Color;
 import java.awt.FlowLayout;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.border.Border;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
 
 import controller.AppManager;
 
 public class MainFrame extends JFrame {
 
+	private static final long serialVersionUID = 4259072424444018947L;
+
 	private AppManager appManager;
 	
 	private JButton textViewButton;
 	private JButton addTextButton;
+	private JTextField numberOfInteractions;
 
 	public MainFrame() {
 		super("Java Swing MVC");	
@@ -27,6 +29,11 @@ public class MainFrame extends JFrame {
 		// size of our application frame
 		setSize(FRAME_WIDTH, FRAME_HEIGHT);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		add(new JLabel("number of interactions"));
+		numberOfInteractions = new JTextField("0");
+		numberOfInteractions.setEditable(false);
+		add(numberOfInteractions);
 		
 		textViewButton = new JButton("View text");
 //		myButton.setBackground(Color.blue);		
@@ -52,5 +59,10 @@ public class MainFrame extends JFrame {
 		return addTextButton;
 	}
 
+	public JTextField getNumberOfInteractions() {
+		return numberOfInteractions;
+	}
+
+	
 	
 }
